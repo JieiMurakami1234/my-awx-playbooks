@@ -1,0 +1,7 @@
+---
+- name: 簡単なテストプレイブック
+  hosts: all
+  become: yes
+  tasks:
+    - name: ホスト名を表示する
+      command: hostname
