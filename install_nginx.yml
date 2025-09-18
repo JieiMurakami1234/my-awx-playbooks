@@ -1,0 +1,20 @@
+---
+
+- name: Install nginx and launch it
+  hosts: webservers
+  become: true
+
+  tasks:
+    - name: Install nginx
+      apt:
+        name: nginx
+        state: present
+        update_chche: yes
+      when: ansible_os_family == 'Debian'
+
+    - name: Launch nginx
+      systemd:
+        name: nginx
+        state: started
+        enabled: yes
+
