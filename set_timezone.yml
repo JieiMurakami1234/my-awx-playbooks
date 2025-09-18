@@ -1,0 +1,10 @@
+---
+
+- name: Set timezone on all webservers 
+  hosts: webservers
+  become: yes
+
+  tasks:
+    - name: Set timezone to Asia/Tokyo
+      ansible.builtin.command:
+        cmd: timedatectl set-timezone Asia/Tokyo
